@@ -1,0 +1,331 @@
+@CHARSET "UTF-8";
+
+@media ( max-width :480px) {
+	h1 {
+		font-size: 21px;
+	}
+	.btn {
+		font-size: 12px;
+	}
+}
+
+.login {
+	max-width: 350px;
+	margin: 0 auto;
+}
+
+.not-logged-in h1.title {
+	display: none;
+}
+
+body {
+	padding: 1em;
+	transition: all .5s ease;
+}
+
+nav {
+	
+}
+
+nav .btn-group.utility {
+	float: right;
+}
+
+
+
+
+body.asset .content .editable.live-field input {
+    max-width: 15vw;
+}
+
+.list-group-item:hover {
+	cursor: pointer;
+}
+
+ul.list-group {
+	padding-left: 0;
+}
+
+ul.list-group li {
+	list-style: none;
+}
+
+.row .field-envelope {
+	display: inline-block;
+}
+
+.column {
+	display: inline-block;
+	vertical-align: top;
+	max-width: 40%;
+	margin-right: .5em;
+}
+
+.vendor-list .column {
+	width: 30%;
+}
+
+.form-dialog .column {
+	max-width: 20%;
+	padding: .2em 0;
+}
+
+.form-dialog .column.details {
+	min-width: 50%;
+}
+
+.form-dialog label {
+	display: block;
+}
+
+.form-dialog {
+	/* width: 80%; */
+	margin: 0 auto;
+}
+
+form select.form-control {
+	display: inline-block;
+	width: auto;
+}
+
+form input.form-control {
+	display: inline-block;
+	width: auto;
+}
+
+form textarea.form-control{
+	max-width: 5ex;
+}
+
+footer {
+	width: 100%;
+	clear: both;
+	font-size: .9em;
+}
+
+.details-block {
+	box-shadow: 2px 2px 4px #CCC;
+	padding: 1em;
+	overflow: auto;
+	width: 100%;
+	/* position: absolute; */
+	margin: 0 1em;
+	overflow: auto;
+	/* max-height: 500px; */
+	background-color: #fff;
+	display: none;
+	margin: 0 1em
+}
+
+.details-block li p {
+	white-space: nowrap;
+}
+
+ul.button-list {
+	list-style: none;
+	padding: 0;
+}
+
+ul.button-list li {
+	display: inline-block;
+}
+
+ul.button-list li a {
+	margin: 0 .25em;
+}
+
+.items {
+	clear: both;
+}
+
+table.item-list {
+	clear: both;
+}
+
+table.item-list th.price, table.item-list th.total {
+	text-align: right;
+}
+
+table tr.inactive td {
+	color: darkgray;
+}
+
+.left-box, .right-box {
+	width: 45%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.left-box fieldset, .right-box fieldset {
+	/* height: 2.65in; */
+	
+}
+
+.ui-dialog {
+	background-color: white;
+	position: relative;
+	top: auto;
+	right: auto;
+	bottom: auto;
+	left: auto;
+	z-index: 1;
+	display: block;
+	box-shadow: 2px 2px 3px #aaa;
+}
+
+.ui-dialog-title {
+	min-height: 16.43px;
+	padding: 15px;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.no-wrap {
+	white-space: nowrap;
+}
+
+.modal-body form {
+	/* width: 100%; 
+	margin: 3em auto;*/
+	
+}
+
+.checkbox input[type=checkbox], .checkbox-inline input[type=checkbox],
+	.radio input[type=radio], .radio-inline input[type=radio] {
+	position: relative;
+	margin: 0;
+}
+
+.js-positioning {
+	position: absolute;
+	transition: all .1s ease;
+}
+
+input.error {
+	background-color: red;
+}
+
+.details-row {
+	display: none;
+}
+
+.code-element {
+	display: inline-block;
+	width: auto;
+}
+
+.code-element.code-type {
+	padding-right: 1em;
+}
+
+.code-element.code-value {
+	
+}
+
+.code-row {
+	width: 100%;
+}
+
+.code-row .btn-group {
+	float: right;
+}
+
+input.price {
+	width: 6em !important;
+}
+
+input.year {
+	width: 5em !important;
+}
+
+.viewer .edit, .viewer .delete, .viewer .create {
+	display: none;
+}
+
+.viewer nav .create {
+	display: inherit;
+}
+
+.editor .edit-field.editable {
+	min-width: 2em;
+	text-indent: 3px;
+	transition: all .25s ease;
+}
+
+.editor .edit-field.editable:hover {
+	cursor: pointer;
+	background-image: url(images/edit_item.png);
+	background-repeat: no-repeat;
+	background-position: center left;
+	padding-left: 1em;
+}
+
+.edit-field.usd::before {
+	content: "$";
+}
+
+ul.unformatted {
+	padding: 0;
+}
+
+ul.unformatted li {
+	list-style: none;
+	line-height: initial;
+}
+
+.file-row ul {
+	padding: 0;
+}
+
+.file-row ul li {
+	padding-right: 1em;
+	display: inline-block;
+}
+body.development {
+	border-top: 15px solid red;
+}
+
+@media ( max-width : 666px) {
+	.left-box, .right-box {
+		width: 100%;
+		float: none;
+	}
+	.vendor-list .column {
+		min-width: 50%;
+	}
+}
+
+@media ( max-width : 768px) {
+	.vendor-list .column {
+		width: 100%;
+	}
+	.form-dialog {
+		width: 100%;
+	}
+	.form-dialog input {
+		max-width: 95%;
+	}
+	.form-dialog .column.mobile-clear {
+		display: block;
+	}
+	.form-dialog .column {
+		max-width: 46%;
+		width: auto;
+	}
+	.form-dialog .column.no-wrap {
+		max-width: 100%;
+	}
+	.column {
+		max-width: 100%;
+		width: 100%;
+	}
+	.form-dialog .column.details {
+		width: 100%;
+		display: block;
+	}
+}
+
+@media ( max-width : 420px) {
+	table.table.table-responsive td, table.table.table-responsive th {
+		display: block;
+	}
+}

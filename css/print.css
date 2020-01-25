@@ -1,0 +1,122 @@
+body {
+	font-family: "Times New Roman", serif;
+	font-size: 16px;
+	width: 8.5in;
+	padding: 0;
+	margin: 0;
+}
+
+h1.title {
+	display: none;
+}
+
+.btn, .btn-group {
+	display: none;
+}
+
+nav, .btn-group {
+	display: none;
+}
+
+#page {
+	padding: .5in;
+	width: 8in;
+}
+
+div.line {
+	position: static;
+	border-bottom: 1px solid black
+}
+
+#header {
+	visibility: hidden;
+	/*padding: 0 0 0 0;*/
+	position: relative
+}
+
+#navigation {
+	visibility: hidden;
+	position: absolute;
+	background-color: #ffd;
+	/*padding: .0 0 0 0;
+	height: 0;*/
+	border-top: 0;
+}
+
+#po-box {
+	float: right;
+	font-size: 22px;
+	font-family: Courier;
+	color: black;
+}
+
+.button {
+	visibility: none;
+	display: none;
+}
+
+#content {
+	min-width: 7.5in;
+	width: 8in;
+	margin: 0 auto;
+}
+
+.left-box, .right-box {
+	display: inline-block;
+	width: 45%;
+}
+
+#header-row {
+	border-bottom: solid 1px
+}
+
+#address-row {
+	width: 100%;
+	height: 2.25in;
+	border-bottom: 4px solid #000;
+	padding: 10px 0;
+}
+
+#details-row {
+	height: 1.25in;
+	border-bottom: 2px solid #000;
+}
+
+.items-row {
+	
+}
+
+#logo-box {
+	float: left;
+}
+
+#po-box {
+	float: right;
+	font-size: 22px;
+	font-family: "Courier";
+}
+
+#po-label {
+	font-size: 130%;
+	font-weight: bold;
+}
+
+#fsm-box {
+	width: auto;
+	margin-left: 150px;
+	margin-right: 150px;
+}
+
+.table {
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: 20px;
+}
+
+table.item-list.table tr td {
+	vertical-align: top;
+}
+
+footer {
+	display: none;
+}
