@@ -1,4 +1,15 @@
-# Contributing to CodeIgniter
+# Invoices
+
+This is a simple CodeIgniter project aimed at providing a more personalized, open-source invoicing tool. 
+It includes the following features:
+* address book with clients and client contacts
+* a time tracking system that is light-weight and easy to edit
+* an invoicing system that will produce printable or emailable invoices
+    * by the first full version release clients will be able to go to a web page with a hash code to view their invoice status. 
+    
+# This is a Codeigniter-based project
+
+This contains the Codeigniter codebase, but it is not a fork of code-igniter. I have not modified the /system folder in any way. 
 
 CodeIgniter is a community driven project and accepts contributions of code and documentation from the community. These contributions are made in the form of Issues or [Pull Requests](http://help.github.com/send-pull-requests/) on the [CodeIgniter repository](https://github.com/bcit-ci/CodeIgniter) on GitHub.
 
