@@ -56,6 +56,9 @@ class Timesheet_model extends MY_Model {
 		if(array_key_exists('client_id', $options)){
 			$this->db->where('client_id', $options['client_id']);
 		}
+		if(array_key_exists('invoice_id', $options)){
+			$this->db->where('invoice_id', $options['invoice_id']);
+		}
 		$this->db->join("variable", "variable.category='time_category' AND var_key = timesheet.category", "LEFT");
 		$this->db->order_by('day');
 		$this->db->order_by('start_time');

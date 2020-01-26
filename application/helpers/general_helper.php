@@ -182,3 +182,10 @@ function humanize($str, $separator = '_')
 function format_name($contact){
 	return $contact->first_name . ' ' . $contact->last_name;
 }
+
+
+function get_lapsed_time($entry){
+	$start = date('U', strtotime($entry->start_time));
+	$end = date('U', strtotime($entry->end_time));
+	return (object)['time'=>gmdate('H:i:s', $end - $start),'seconds'=>$end-$start];
+}

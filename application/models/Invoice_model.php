@@ -1,19 +1,43 @@
 <?php
 
 
-class Invoice_model extends MY_Model{
-	protected $client_id;
-	protected $user_id;
-	protected $date_created;
-	protected $date_sent;
-	protected $date_paid;
+class Invoice_model extends MY_Model {
 
-	function prepare_variables(){
-		foreach($this as $key=>$value){
+	public $client_id;
+
+	public $user_id;
+
+	public $date_created;
+
+	public $date_sent;
+
+	public $date_paid;
+
+	function __construct() {
+		parent::__construct();
+		$this->load->model('client_model', 'client');
+		$this->load->model('timesheet_model', 'timesheet');
+
+	}
+
+	function prepare_variables() {
+		foreach ($this as $key => $value) {
 			$this->{$key} = $this->input->post($key);
 		}
 	}
 
+	function get($invoice_id) {
+		$invoice = $this->_get('invoice', $invoice_id);
+		$invoice->client = $this->client->get($invoice->client_id);
+		$invoice->time_entries = $this->timesheet->get_for_user($this->ion_auth->get_user_id(), ['invoice_id' => $invoice_id]);
+		return $invoice;
+
+	}
+
+	function insert() {
+		$this->prepare_variables();
+		return $this->_insert('invoice');
+	}
 
 
 }
