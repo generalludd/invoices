@@ -108,8 +108,14 @@ function create_button($data)
 			if (array_key_exists ( "id", $data )) {
 				$id = "id='" . $data ["id"] . "'";
 			}
+			$data_attributes = [];
+			if(array_key_exists('data-attributes', $data) && is_array($data['data-attributes'])){
+				foreach($data['data-attributes'] as $key=>$value){
+					$data_attributes[] = 'data-' . $key . '="' . $value . '"';
+				}
+			}
 			
-			$button = "<$tag $href $id $class $target $js_data $title>$text</$tag>";
+			$button = '<' . implode(' ', [$tag, $href, $id ,$class, $target, $js_data ,$title,implode(' ', $data_attributes)]) . '>' . $text . '</' . $tag . '>';
 			
 			if (array_key_exists ( "enclosure", $data )) {
 				if (array_key_exists ( "tag", $data ["enclosure"] )) {

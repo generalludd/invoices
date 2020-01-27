@@ -370,8 +370,10 @@ function move_footer() {
 
 function show_popup(me) {
     let target = $(me).attr("href");
+    let redirect = $(me).data('redirect');
     let form_data = {
-        ajax: 1
+        ajax: 1,
+		redirect: redirect
     };
     $.ajax({
         type: "get",

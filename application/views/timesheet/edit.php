@@ -5,6 +5,7 @@
 >
 	<input type="hidden" name="user_id" id="user_id" value="<?php echo $user->id;?>" />
 	<input type="hidden" name="id" id="id" value="<?php echo get_value($entry,"id");?>" />
+	<input type="hidden" name="redirect" value="<?php echo $redirect;?>"/>
 	<div class="form-group">
 		<label class="col-sm-4 control-label no-wrap">Date:</label>
 		<div class="col-sm-8">

@@ -88,14 +88,12 @@ class Timesheet_model extends MY_Model {
 		if (empty ($values)) {
 			$this->prepare_variables();
 			$this->category = $this->variable->insert('time_category', $this->category, $this->user_id);
+			return $this->_update('timesheet', $id, $this);
 
 		}
 		else {
-			foreach ($values as $key => $value) {
-				$this->{$key} = $value;
-			}
+			return $this->_update('timesheet', $id, $values);
 		}
-		return $this->_update('timesheet', $id, $this);
 	}
 
 	function delete($id) {

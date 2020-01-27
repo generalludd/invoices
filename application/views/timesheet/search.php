@@ -26,7 +26,7 @@
 	<div class="form-group">
 		<label class="col-sm-4 control-label no-wrap">Client:</label>
 		<div class="col-sm-8">
-			<?php echo form_dropdown('client_id', $clients, $this->input->get('client_id'), "required=required class='form-control'"); ?>
+			<?php echo form_dropdown('client_id', $clients, $this->input->get('client_id'), "class='form-control'"); ?>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-4 control-label no-wrap"

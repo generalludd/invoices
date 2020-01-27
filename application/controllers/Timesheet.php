@@ -150,7 +150,7 @@ class Timesheet extends MY_Controller {
 				"var_key",
 				"var_value" 
 		), TRUE, TRUE );
-
+		$data['redirect']=  $this->input->get('redirect');
 		$clients = $this->client->get_all();
 		$data['clients'] = get_keyed_pairs($clients,[
 			'id',
@@ -170,7 +170,41 @@ class Timesheet extends MY_Controller {
 		$this->timesheet->update ( $id );
 		$date = $this->input->post ( "day" );
 		$user_id = $this->input->post ( "user_id" );
-		redirect ( sprintf ( "timesheet/search?is_search=1&start_day=%s&end_day=%s&user_id=%s", $date, $date, $user_id ) );
+		redirect ( base_url($this->input->post('redirect')) );
+	}
+
+	public function invoice($action, $timesheet_id, $invoice_id){
+		if($action == 'add') {
+			$this->timesheet->update($timesheet_id,['invoice_id'=>$invoice_id] );
+			}
+		elseif($action == 'remove'){
+			$this->timesheet->update($timesheet_id,['invoice_id'=>NULL]);
+		}
+		if($this->input->get('ajax')){
+			$this->load->model('Invoice_model', 'invoice');
+			$invoice = $this->invoice->get($invoice_id);
+			$free_entries = $this->timesheet->get_for_user($this->ion_auth->get_user_id(), [
+				'uninvoiced' => TRUE,
+				'client_id' => $invoice->client->id,
+			]);
+			$data = [
+				'work_log' => $this->load->view('timesheet/table', [
+					'time_entries' => $invoice->time_entries,
+					'invoice_id' => $invoice->id,
+					'action' => 'remove',
+					'rate' => $invoice->client->rate,
+				], TRUE),
+				'free_entries' =>  $this->load->view('timesheet/table', [
+					'time_entries' => $free_entries,
+					'invoice_id' => $invoice->id,
+					'action' => 'add',
+					'rate' => $invoice->client->rate,], 'TRUE'),
+			];
+			echo json_encode($data);
+		}
+		else{
+			redirect('invoice/view/' . $invoice_id);
+		}
 	}
 
 	public function delete()

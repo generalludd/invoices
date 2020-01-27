@@ -46,6 +46,7 @@ $current_client = 0;
 						"class" => "btn-sm edit dialog insert",
 						"href" => base_url("timesheet/edit/$entry->id?ajax=1"),
 						"style" => "edit",
+						'data-attributes'=>['redirect'=>'timesheet/search?'.$_SERVER['QUERY_STRING']],
 					]; ?>
 					<?php $inline_buttons[] = [
 						"text" => "Next  <i class='fa fa-arrow-down'></i>",

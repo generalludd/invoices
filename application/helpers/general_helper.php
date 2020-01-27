@@ -187,5 +187,5 @@ function format_name($contact){
 function get_lapsed_time($entry){
 	$start = date('U', strtotime($entry->start_time));
 	$end = date('U', strtotime($entry->end_time));
-	return (object)['time'=>gmdate('H:i:s', $end - $start),'seconds'=>$end-$start];
+	return (object)['time'=>gmdate('j\h i\m', $end - $start),'seconds'=>$end-$start];
 }
