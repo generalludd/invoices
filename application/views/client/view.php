@@ -16,7 +16,7 @@ print create_toolbar($buttons);
 <div class="container">
 	<div class="row">
 		<div class="col-sm">
-			<?php $this->load->view('client/view',['client'=>$client]);?>
+			<?php $client->client_name;?>
 		</div>
 		<div id="contacts-view" class="col-sm">
 			<?php foreach ($client->contacts as $contact): ?>
@@ -37,6 +37,11 @@ print create_toolbar($buttons);
 					'href'=>base_url('invoice/create/'. $client->id),
 				]; ?>
 				<?php print create_toolbar($invoice_buttons);?>
+				<?php foreach($invoices as $invoice):?>
+						<div class="row">
+							<?php echo internal_link('invoice/view/' . $invoice->id, date('m/d/Y', strtotime($invoice->date_created)));?>
+						</div>
+				<?php endforeach;?>
 			</fieldset>
 		</div>
 		<div class="col">

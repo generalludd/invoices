@@ -19,6 +19,7 @@ if(!isset($attributes)){
 		<input type="<?php echo $type; ?>" class="<?php echo implode(' ' ,$classes);?>"
 					 name="<?php echo $name; ?>" id="<?php echo $field_id; ?>" <?php echo $attributes; ?>
 					 value="<?php echo $value; ?>"
+					 <?php echo (isset($required) && $required == TRUE)?'required':'';?>
 		/>
 	</div>
 </div>

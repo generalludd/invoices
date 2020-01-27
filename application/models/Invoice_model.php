@@ -39,5 +39,18 @@ class Invoice_model extends MY_Model {
 		return $this->_insert('invoice');
 	}
 
+	function get_for_client($client_id){
+		$this->db->from('invoice');
+		$this->db->where('client_id', $client_id);
+		$this->db->order_by('date_paid');
+		$this->db->order_by('date_sent');
+		$this->db->order_by('date_created');
+		return $this->db->get()->result();
+	}
+
+	function update($invoice_id){
+		$this->prepare_variables();
+		$this->_update('invoice',$invoice_id, $this);
+	}
 
 }

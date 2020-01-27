@@ -6,7 +6,7 @@ class Client extends My_Controller {
 	function __construct() {
 		parent::__construct();
 		$this->load->model('client_model', 'client');
-
+		$this->load->model('Invoice_model','invoice');
 	}
 
 	function index() {
@@ -22,10 +22,12 @@ class Client extends My_Controller {
 
 	function view($client_id) {
 		$client = $this->client->get($client_id);
+		$invoices = $this->invoice->get_for_client($client_id);
 		$data = [
 			'title' => 'Viewing ' . $client->client_name,
 			'target' => 'client/view',
 			'client' => $client,
+			'invoices'=>$invoices,
 		];
 		$this->load->view('page/index', $data);
 	}

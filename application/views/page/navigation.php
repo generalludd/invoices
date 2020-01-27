@@ -34,11 +34,4 @@ $buttons [] = array (
 		"class" => "create-vendor create dialog" 
 );
 
-$buttons [] = array (
-		"text" => "New Invoice",
-		"href" => site_url ( "invoice/create" ),
-		"style" => "new",
-		"class" => "create-po create dialog" 
-);
-
 print create_toolbar ( $buttons );

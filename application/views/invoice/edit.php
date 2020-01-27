@@ -9,34 +9,23 @@
 		'name' => 'date_created',
 		'label' => 'Date Created',
 		'value'=> get_value($invoice, 'date_created', date('Y-m-d')),
+		'required'=>TRUE,
 ]);?>
 	<?php $this->load->view('elements/input',[
 		'type'=>'date',
 		'name' => 'date_sent',
 		'label' => 'Date Sent',
 		'value'=> get_value($invoice, 'date_sent'),
+		'required'=>FALSE,
 	]);?>
 	<?php $this->load->view('elements/input',[
 		'type'=>'date',
 		'name' => 'date_paid',
 		'label' => 'Date Paid',
 		'value'=> get_value($invoice, 'date_paid'),
+		'required'=>FALSE,
+
 	]);?>
-	<?php if($action == 'update'):?>
-	<ul class="list-group">
-
-		<?php foreach($time_entries as $entry):?>
-			<li class="list-group-item">
-				<?php echo $entry->var_value ?>:
-				<?php echo $entry->details . '<br/> Date: ' . date('m/d/Y',strtotime($entry->day));?>
-				<?php $end =  intval(date('U', strtotime($entry->end_time)));?>
-				<?php $start =  intval(date('U',strtotime($entry->start_time)));?>
-				<?php echo '<br/>Time: '.  gmdate('H:i:s', ($end - $start));?>
-			</li>
-
-		<?php endforeach;?>
-	</ul>
-<?php endif;?>
 	<div class="form-group">
 		<div class="col-sm-offset-4 col-sm-8">
 			<input type="submit" value="<?php echo ucfirst($action);?>" class="form-control insert btn-default" />

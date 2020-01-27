@@ -33,23 +33,43 @@ class Invoice extends MY_Controller {
 
 	function create($client_id) {
 		$client = $this->client->get($client_id);
-		$time_entries = $this->timesheet->get_for_user($this->ion_auth->get_user_id(), [
-			'uninvoiced' => TRUE,
-			'client_id' => $client_id,
-		]);
 		$data = [
 			'title' => 'Create an invoice for ' . $client->client_name,
 			'target' => 'invoice/edit',
 			'action' => 'insert',
 			'client' => $client,
 			'invoice' => NULL,
-			'time_entries' => $time_entries,
 		];
 		$this->load->view('page/index', $data);
 	}
 
 	function insert() {
 		$invoice_id = $this->invoice->insert();
+		redirect('invoice/view/' . $invoice_id);
+	}
+
+	function edit($invoice_id){
+		$invoice = $this->invoice->get($invoice_id);
+		$client = $this->client->get($invoice->client_id);
+
+		$data =[
+			'title'=>'Edit Invoice Details',
+			'target' =>'invoice/edit',
+			'action'=>'update',
+			'invoice' => $invoice,
+			'client'=>$client,
+		];
+		if($this->input->get('ajax')){
+			$this->load->view('page/modal', $data);
+		}
+		else{
+			$this->load->view('page/index',$data);
+		}
+	}
+
+	function update(){
+		$invoice_id= $this->input->post('id');
+		$this->invoice->update($invoice_id);
 		redirect('invoice/view/' . $invoice_id);
 	}
 }
